@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -45,6 +46,8 @@ public class FullscreenActivity extends Activity {
 	 */
 	private SystemUiHider mSystemUiHider;
 
+	private WebView mainWebView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -116,6 +119,12 @@ public class FullscreenActivity extends Activity {
 		// while interacting with the UI.
 		findViewById(R.id.dummy_button).setOnTouchListener(
 				mDelayHideTouchListener);
+		
+		// Load the html game stored in the assets
+		mainWebView = (WebView) findViewById(R.id.myWebView);
+		mainWebView.getSettings().setJavaScriptEnabled(true);
+		//mainWebView.loadUrl("file:///android_asset/index.html");
+		mainWebView.loadUrl("http://gamedolph.in/sample-page/matching-pairs/");
 	}
 
 	@Override
