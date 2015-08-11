@@ -1,35 +1,33 @@
-<!DOCTYPE HTML>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
-	<title>Matching Pairs - Game Dolphin</title>
-	<script src="phaser.min.js"></script>
-	<script src="Boot.js"></script>
-	<script src="Preloader.js"></script>
-	<script src="MainMenu.js"></script>
-	<script src="Game.js"></script>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/tile.js"></script>
+	<script src="js/jquery.flip.js"></script>
+	<script src="js/matching.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Cherry+Swash:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body style="margin:0px;" bgcolor="#000000">
-
-<div id="gameContainer"></div>
-
-<script type="text/javascript">
-
-window.onload = function() {
-
-	var game = new Phaser.Game(360,600, Phaser.AUTO, 'gameContainer');
-
-	game.state.add('Boot', BasicGame.Boot);
-	game.state.add('Preloader', BasicGame.Preloader);
-	game.state.add('MainMenu', BasicGame.MainMenu);
-	game.state.add('Game', BasicGame.Game);
-	game.state.add('EndScreen',BasicGame.EndScreen);
-	
-	game.state.start('Boot');
-
-};
-
-</script>
-
+<body>
+	<article id="game">
+		<header>
+			<div>Simple HTML5 Matching Game</div>
+		</header>
+		<section id="board">
+		</section>
+		<br>
+		<h1><a href='#' id="startGameButton" style="text-align:center">New Game</a></h1>
+	</article>
+	<audio id="audioEngine">
+	  <source src="mp3/applause.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+	</audio>
 </body>
 </html>
