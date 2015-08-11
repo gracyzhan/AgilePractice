@@ -123,8 +123,8 @@ public class FullscreenActivity extends Activity {
 		// Load the html game stored in the assets
 		mainWebView = (WebView) findViewById(R.id.myWebView);
 		mainWebView.getSettings().setJavaScriptEnabled(true);
-		//mainWebView.loadUrl("file:///android_asset/index.html");
-		mainWebView.loadUrl("http://gamedolph.in/sample-page/matching-pairs/");
+		mainWebView.loadUrl("file:///android_asset/index.html");
+		//mainWebView.loadUrl("http://gamedolph.in/sample-page/matching-pairs/");
 	}
 
 	@Override
