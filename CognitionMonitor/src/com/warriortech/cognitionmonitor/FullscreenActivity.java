@@ -121,7 +121,7 @@ public class FullscreenActivity extends Activity {
 		findViewById(R.id.dummy_button).setOnTouchListener(
 				mDelayHideTouchListener);
 		
-		// TODO: Load the html game stored in the assets, Harry please fix
+		// Load the html game stored in the assets
 		mainWebView = (WebView) findViewById(R.id.myWebView);
 		mainWebView.getSettings().setJavaScriptEnabled(true);
 		mainWebView.setWebChromeClient(new WebChromeClient());
