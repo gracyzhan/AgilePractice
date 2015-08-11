@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
 /**
@@ -123,11 +124,11 @@ public class FullscreenActivity extends Activity {
 		// Load the html game stored in the assets
 		mainWebView = (WebView) findViewById(R.id.myWebView);
 		mainWebView.getSettings().setJavaScriptEnabled(true);
-		mainWebView.getSettings().setDomStorageEnabled(true);
+		mainWebView.setWebChromeClient(new WebChromeClient());
 		mainWebView.loadUrl("file:///android_asset/index.html");
 		//mainWebView.loadUrl("http://gamedolph.in/sample-page/matching-pairs/");
 	}
-
+	
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
