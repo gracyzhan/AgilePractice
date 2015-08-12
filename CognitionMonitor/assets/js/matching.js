@@ -140,10 +140,10 @@ function checkMatch() {
 			setTimeout("tiles[" + iFlippedTile + "].revertFlip()", 2000);
 			setTimeout("tiles[" + iTileBeingFlippedId + "].revertFlip()", 2000);
 			
-			playAudio("mp3/no.mp3");
+			playAudio("mp3/Error.mp3");
 
 		} else {
-			playAudio("mp3/applause.mp3");
+			playAudio("mp3/Ok.mp3");
 		}
 
 		iFlippedTile = null;
