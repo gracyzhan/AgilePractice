@@ -2,15 +2,20 @@ package com.warriortech.cognitionmonitor;
 
 import com.warriortech.cognitionmonitor.util.SystemUiHider;
 
+import android.R.string;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings.ZoomDensity;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -47,8 +52,11 @@ public class FullscreenActivity extends Activity {
 	 */
 	private SystemUiHider mSystemUiHider;
 
-	private WebView mainWebView;
 	
+	private String startPageURL = "file:///android_asset/login.html";
+	private String gamePageURL = "file:///android_asset/game.html";
+	private WebView mainWebView;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -120,42 +128,56 @@ public class FullscreenActivity extends Activity {
 		// while interacting with the UI.
 		findViewById(R.id.dummy_button).setOnTouchListener(
 				mDelayHideTouchListener);
-		
+
 		// Load the html game stored in the assets
 		mainWebView = (WebView) findViewById(R.id.myWebView);
 		mainWebView.getSettings().setJavaScriptEnabled(true);
 		mainWebView.setWebChromeClient(new WebChromeClient());
-		mainWebView.loadUrl("file:///android_asset/login.html");
+		mainWebView.loadUrl(startPageURL);
 		mainWebView.getSettings().setBuiltInZoomControls(true);
+
 		mainWebView.getSettings().setLoadWithOverviewMode(true);
-		mainWebView.getSettings().setUseWideViewPort(true);
+		// mainWebView.getSettings().setUseWideViewPort(true);
+
+		mainWebView.setWebViewClient(new WebViewClient() {
+
+			@Override
+			public void onPageFinished(WebView view, String url) {
+				// TODO: this is a bad way to fix the zoom level
+				// please use a better way for the game page
+				 
+				if (url.equals(gamePageURL))
+					mainWebView.setInitialScale(150);				
+			}
+		});
 		
-		hideSystemUI();	
-	}
-	
-	// This snippet hides the system bars.
-	private void hideSystemUI() {
-	    // Set the IMMERSIVE flag.
-	    // Set the content to appear under the system bars so that the content
-	    // doesn't resize when the system bars hide and show.
-		 getWindow().getDecorView().setSystemUiVisibility(
-	            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-	            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-	            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-	            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-	            | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-	            | View.SYSTEM_UI_FLAG_IMMERSIVE);
+		hideSystemUI();
 	}
 
-	// This snippet shows the system bars. It does this by removing all the flags
+	// This snippet hides the system bars.
+	private void hideSystemUI() {
+		// Set the IMMERSIVE flag.
+		// Set the content to appear under the system bars so that the content
+		// doesn't resize when the system bars hide and show.
+		getWindow().getDecorView().setSystemUiVisibility(
+				View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+						| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+						| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+						| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+						| View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+						| View.SYSTEM_UI_FLAG_IMMERSIVE);
+	}
+
+	// This snippet shows the system bars. It does this by removing all the
+	// flags
 	// except for the ones that make the content appear under the system bars.
 	private void showSystemUI() {
-		 getWindow().getDecorView().setSystemUiVisibility(
-	            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-	            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-	            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+		getWindow().getDecorView().setSystemUiVisibility(
+				View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+						| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+						| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 	}
-	
+
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
