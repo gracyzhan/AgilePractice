@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DataBaseDaoImpl extends SQLiteOpenHelper{
 
 	private final static int DATABASE_VERSION = 1; 
-	private final static String DATABASE_NAME = "CognitionMonitorDb.db";   
+	private final static String DATABASE_NAME = "/sdcard/CognitionMonitorDb.db";   
 	public String getDatabaseName() {
 		return DATABASE_NAME;
 	}
@@ -25,14 +25,13 @@ public class DataBaseDaoImpl extends SQLiteOpenHelper{
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		
-		PlayScoresHisTable playScoresHisTable = new PlayScoresHisTable();
-		String sql = "CREATE TABLE " + playScoresHisTable.getTABLE_NAME() + " (" + playScoresHisTable.getID()   
+		String sql = "CREATE TABLE " + PlayScoresHisTable.TABLE_NAME + " (" + PlayScoresHisTable.ID   
 				 + " INTEGER primary key autoincrement, " 
-				+ playScoresHisTable.getMachineId() + " TEXT, " 
-				+ playScoresHisTable.getPlayGameId() + " TEXT, " 
-				+ playScoresHisTable.getPlayGameName() + " TEXT, " 
-				+ playScoresHisTable.getScore() + " FLOAT, " + 
-				 playScoresHisTable.getPlayTime() +" timestamp );";   
+				+ PlayScoresHisTable.MachineId + " TEXT, " 
+				+ PlayScoresHisTable.PlayGameId + " TEXT, " 
+				+ PlayScoresHisTable.PlayGameName + " TEXT, " 
+				+ PlayScoresHisTable.Score + " FLOAT, " + 
+				PlayScoresHisTable.PlayTime+" timestamp );";   
 
 				 db.execSQL(sql);   
 	}

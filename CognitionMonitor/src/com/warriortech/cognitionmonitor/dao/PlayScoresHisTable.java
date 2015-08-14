@@ -6,50 +6,17 @@ package com.warriortech.cognitionmonitor.dao;
  * do not use this class to transport data 
  * use PlayScoresHis to transport data
  */
-public class PlayScoresHisTable {
-
-	public String getTABLE_NAME() {
-		return TABLE_NAME;
-	}
-
-	 
-	public String getID() {
-		return ID;
-	}
-
-	 
-	public String getMachineId() {
-		return MachineId;
-	}
+public  class PlayScoresHisTable {
 
 	 
 
-	public String getPlayTime() {
-		return PlayTime;
-	}
-
-	 
-
-	public String getScore() {
-		return Score;
-	}
-
-	
-	public String getPlayGameId() {
-		return PlayGameId;
-	}
-
-	public String getPlayGameName() {
-		return PlayGameName;
-	}
-
-	private String PlayGameId = "PlayGameId";
-	private String PlayGameName = "PlayGameName";
-	private String PlayTime = "PlayTime";
-	private String Score = "Score";
-	private String TABLE_NAME = "PlayScoresHis";
-	private String ID = "ID";
-	private String MachineId = "MachineId";
+	public final static String PlayGameId = "PlayGameId";
+	public final static String PlayGameName = "PlayGameName";
+	public final static String PlayTime = "PlayTime";
+	public final static String Score = "Score";
+	public final static String TABLE_NAME = "PlayScoresHis";
+	public final static String ID = "ID";
+	public final static String MachineId = "MachineId";
 	
 
 }
