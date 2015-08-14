@@ -2,20 +2,17 @@ package com.warriortech.cognitionmonitor;
 
 import com.warriortech.cognitionmonitor.util.SystemUiHider;
 
-import android.R.string;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
-import android.webkit.WebSettings.ZoomDensity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -150,7 +147,7 @@ public class FullscreenActivity extends Activity {
 					mainWebView.setInitialScale(150);				
 			}
 		});
-		
+
 		hideSystemUI();
 	}
 
