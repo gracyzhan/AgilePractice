@@ -1,9 +1,6 @@
 /* 
-    Document   : style
-    Created on : 07-Mar-2013, 15:08:57
-    Author     : Ray Hammond
     Description:
-        CSS styles for a matching game written using HTML5.
+        CSS for game.html
 */
 
 root { 
@@ -12,11 +9,11 @@ root {
 
 body {
 	background-color: #fff;
-	margin: 20px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
 body article#game {
-	width: 600px;
+	width: 480px;
 	margin: 0 auto;
 }
 
@@ -29,8 +26,8 @@ header div {
 
 #board {
 	padding-top: 10px;
-    width: 570px;
-    height: 450px;
+    width: 450px;
+    height: 570px;
 	background-color: rgb(228, 223, 208);
 }
 
@@ -83,7 +80,6 @@ header div {
 .tileColor4 {
 	 background-color: rgb(200, 217, 126);
 }
-
 
 .tileColor5 {
 	 background-color: #82bd2d;
