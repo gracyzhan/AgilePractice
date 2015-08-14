@@ -125,7 +125,7 @@ public class FullscreenActivity extends Activity {
 		mainWebView = (WebView) findViewById(R.id.myWebView);
 		mainWebView.getSettings().setJavaScriptEnabled(true);
 		mainWebView.setWebChromeClient(new WebChromeClient());
-		mainWebView.loadUrl("file:///android_asset/index.html");
+		mainWebView.loadUrl("file:///android_asset/login.html");
 		mainWebView.getSettings().setBuiltInZoomControls(true);
 		mainWebView.getSettings().setLoadWithOverviewMode(true);
 		mainWebView.getSettings().setUseWideViewPort(true);
