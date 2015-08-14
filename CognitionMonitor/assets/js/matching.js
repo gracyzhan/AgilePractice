@@ -36,7 +36,7 @@ function createTile(iCounter) {
 	curTile.setFrontColor("tileColor" + Math.floor((Math.random() * 5) + 1));
 	curTile.setStartAt(500 * Math.floor((Math.random() * 5) + 1));
 	curTile.setFlipMethod(flips[Math.floor((Math.random() * 3) + 1)]);
-	curTile.setBackContentImage("images/" +  (iRandomImage + 1) + ".jpg");
+	curTile.setBackContentImage("images/" +  (iRandomImage + 1) + ".png");
 	
 	return curTile;
 }
