@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.warriortech.cognitionmonitor.dao.PlayScoresHis;
-import com.warriortech.cognitionmonitor.sqlite.PlayScoresHisDaoImpl;
+import com.warriortech.cognitionmonitor.dao.PlayScoresHisDaoImpl;
 
 import android.app.Activity;
 import android.database.Cursor;

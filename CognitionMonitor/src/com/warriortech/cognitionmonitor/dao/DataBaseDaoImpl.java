@@ -1,6 +1,4 @@
-package com.warriortech.cognitionmonitor.sqlite;
-
-import com.warriortech.cognitionmonitor.dao.PlayScoresHisTable;
+package com.warriortech.cognitionmonitor.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

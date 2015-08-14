@@ -1,11 +1,8 @@
-package com.warriortech.cognitionmonitor.sqlite;
+package com.warriortech.cognitionmonitor.dao;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.warriortech.cognitionmonitor.dao.PlayScoresHis;
-import com.warriortech.cognitionmonitor.dao.PlayScoresHisTable;
 
 import android.content.ContentValues;
 import android.content.Context;
