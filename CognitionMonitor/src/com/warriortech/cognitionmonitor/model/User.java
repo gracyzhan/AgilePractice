@@ -13,6 +13,7 @@ public class User {
 	public void setID(int iD) {
 		ID = iD;
 	}
+	
 	private String name;
 	private int ID;
 }

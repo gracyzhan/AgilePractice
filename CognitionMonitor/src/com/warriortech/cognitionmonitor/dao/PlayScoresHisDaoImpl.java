@@ -22,7 +22,7 @@ public class PlayScoresHisDaoImpl extends DataBaseDaoImpl {
 
 	public PlayScoresHisDaoImpl(Context context, String name,
 			CursorFactory factory, int version) {
-		super(context, DATABASE_NAME, null, VERSION);
+		super(context, DATABASE_NAME, null, VERSION); 
 		// TODO Auto-generated constructor stub
 	}
 

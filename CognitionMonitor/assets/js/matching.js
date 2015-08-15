@@ -183,7 +183,7 @@ function checkIfFinished() {
         var score = totalPuzzleNum / attemptedNum * 100;
         score = score.toFixed(0);
 
-        var endTime = new Date();
+        endTime = new Date();
         
         document.getElementById("scoreLabel").innerHTML = "Your Score = " + score;
     }
