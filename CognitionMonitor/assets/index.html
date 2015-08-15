@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calm breeze start screen</title>
+    <link rel="stylesheet" href="calm-breeze/css/style.css">
+
+    <script>
+        function goToReport() {
+            window.location = "./report.html"
+        }
+
+        function goToGame() {
+            window.location = "./game.html"
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Welcome</h1>
+            <form class="form">
+                <button type="button" id="login-button" onclick="setTimeout(function(){ goToGame() }, 1000)">Start Game</button>
+                <br />
+                <br />
+                <button type="button" id="login-button" onclick="goToReport()">Show Score Report</button>
+            </form>
+        </div>
+
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src='calm-breeze/js/jquery.min.js'></script>
+    <script src="calm-breeze/js/index.js"></script>
+
+</body>
+</html>
