@@ -1,5 +1,11 @@
 package com.warriortech.cognitionmonitor.model;
 
+/**
+ * Data model for game
+ * 
+ * @author ximinyan
+ *
+ */
 public class GameResult {
 	
 	public GameResult(){
