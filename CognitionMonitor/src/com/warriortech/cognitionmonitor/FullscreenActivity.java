@@ -130,7 +130,7 @@ public class FullscreenActivity extends Activity {
 		mainWebView = (WebView) findViewById(R.id.myWebView);
 		mainWebView.getSettings().setJavaScriptEnabled(true);
 		mainWebView.setWebChromeClient(new WebChromeClient());
-		mainWebView.loadUrl(startPageURL);
+		mainWebView.loadUrl(gamePageURL);
 		mainWebView.getSettings().setBuiltInZoomControls(true);
 
 		mainWebView.getSettings().setLoadWithOverviewMode(true);
