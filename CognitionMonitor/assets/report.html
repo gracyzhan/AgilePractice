@@ -1,31 +1,41 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Score Report</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="js/Chart.js"></script>
 </head>
 <body>
-    <div class="container">
-		<!-- Please add your report content here @PJ && @Bin -->
-        <h3>Add your content here<h3/>
+    <div style="width:98%">
+        <h3 style="text-align:center">Your recent score report</h3>
+        <div>
+            <canvas id="canvas" height="450" width="600"></canvas>
+        </div>
     </div>
-	
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script>
+        var randomScalingFactor = function () { return Math.round(Math.random() * 100) };
+        var lineChartData = {
+            labels: ["Aug 1", "Aug 3", "Aug 5", "Aug 7", "Aug 9", "Aug 11", "Aug 14"],
+            datasets: [
+				{
+				    label: "My Second dataset",
+				    fillColor: "rgba(151,187,205,0.2)",
+				    strokeColor: "rgba(151,187,205,1)",
+				    pointColor: "rgba(151,187,205,1)",
+				    pointStrokeColor: "#fff",
+				    pointHighlightFill: "#fff",
+				    pointHighlightStroke: "rgba(151,187,205,1)",
+				    data: [28, 39, 46, 50, 76, 65, 90]
+				}
+            ]
+        }
+
+        window.onload = function () {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx).Line(lineChartData, {
+                responsive: true
+            });
+        }
+
+    </script>
 </body>
 </html>

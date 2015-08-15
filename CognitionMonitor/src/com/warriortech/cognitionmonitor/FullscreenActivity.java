@@ -52,6 +52,7 @@ public class FullscreenActivity extends Activity {
 	
 	private String startPageURL = "file:///android_asset/login.html";
 	private String gamePageURL = "file:///android_asset/game.html";
+	private String selectionPageURL = "file:///android_asset/select.html";
 	private WebView mainWebView;
 
 	@Override
@@ -130,7 +131,7 @@ public class FullscreenActivity extends Activity {
 		mainWebView = (WebView) findViewById(R.id.myWebView);
 		mainWebView.getSettings().setJavaScriptEnabled(true);
 		mainWebView.setWebChromeClient(new WebChromeClient());
-		mainWebView.loadUrl(gamePageURL);
+		mainWebView.loadUrl(selectionPageURL);
 		mainWebView.getSettings().setBuiltInZoomControls(true);
 
 		mainWebView.getSettings().setLoadWithOverviewMode(true);
