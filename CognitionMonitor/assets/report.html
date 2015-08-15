@@ -5,6 +5,13 @@
     <script src="js/Chart.js"></script>
 </head>
 <body>
+	<div style="
+    padding-left: 5px;
+    padding-bottom: 10px;
+    color: black;
+    font-weight: bold;
+    font-family: sans-serif;
+" onclick="backToHomePage()"><< Back</div>
     <div style="width:98%">
         <h3 style="text-align:center">Your recent score report</h3>
         <div>
@@ -34,6 +41,11 @@
             window.myLine = new Chart(ctx).Line(lineChartData, {
                 responsive: true
             });
+        }
+        
+        
+        function backToHomePage() {
+            window.location = "./index.html"
         }
 
     </script>
