@@ -12,7 +12,8 @@ var startTime = null,
     endTime = null,
 	totalPuzzleNum = 10,
     attemptedNum = 0,
-    solvedNum = 0;
+    solvedNum = 0,
+    score = 0;
 
 function getRandomImageForTile() {
 
@@ -53,12 +54,14 @@ function resetScore() {
     solvedNum = 0;
     startTime = new Date();
     endTime = null;
+    score = 0;
+    clearScoreLabel();
 }
 
 function initState() {
 
-    /* Reset the tile allocation count array.  This
-		is used to ensure each image is only 
+    /* Reset the tile allocation count array. 
+       This is used to ensure each image is only 
 		allocated twice.
 	*/
 
@@ -149,13 +152,13 @@ function checkMatch() {
         iFlippedTile = iTileBeingFlippedId;
     } else {
         if (tiles[iFlippedTile].getBackContentImage() !== tiles[iTileBeingFlippedId].getBackContentImage()) {
-
             setTimeout("tiles[" + iFlippedTile + "].revertFlip()", 1000);
             setTimeout("tiles[" + iTileBeingFlippedId + "].revertFlip()", 1000);
-
-            playAudio("mp3/Error.mp3");
+            
+           	playAudio("mp3/Error.mp3");
         } else {
             playAudio("mp3/Ok.mp3");
+            
             solvedNum += 1;
         }
 
@@ -188,12 +191,29 @@ function onPeekStart() {
 function checkIfFinished() {
     if (solvedNum == totalPuzzleNum) {
         endTime = new Date();
-
-        var score = totalPuzzleNum / attemptedNum * 100;
+		var timeElapsed = endTime - startTime;
+		
+		// strip the ms
+		timeElapsed /= 1000;
+		
+        score = totalPuzzleNum / attemptedNum * 1000 - timeElapsed;
+        if (score < 0) {
+        	score = 0;
+        }
+        
         score = score.toFixed(0);
-
-        document.getElementById("scoreLabel").innerHTML = "Your Score = " + score;
+        
+        // A delay before showing the score
+		setTimeout("displayScore(score)", 1000);
     }
+}
+
+function displayScore(score) {
+	document.getElementById("scoreLabel").innerHTML = "Your Score = " + score;
+}
+
+function clearScoreLabel() {
+	document.getElementById("scoreLabel").innerHTML = null;
 }
 
 $(document).ready(function () {
