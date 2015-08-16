@@ -6,12 +6,14 @@ var tiles = new Array(),
 	tileAllocation = null,
 	iTimer = 0,
 	iInterval = 100,
-	iPeekTime = 3000;
+	iPeekTime = 3000,
+	checkingTiles = false,
+	peekInterval = 1000;
 
 var startTime = null,
     endTime = null,
-	totalPuzzleNum = 10
-	totalTileNum = 20,
+	totalPuzzleNum = 10,
+    totalTileNum = 20,
     attemptedNum = 0,
     solvedNum = 0,
     score = 0;
@@ -147,19 +149,32 @@ function playAudio(sAudio) {
     }
 }
 
+function lockOtherTiles() {
+    checkingTiles = true;
+}
+
+function unlockOtherTiles() {
+    checkingTiles = false;
+}
+
 function checkMatch() {
 
     if (iFlippedTile === null) {
         iFlippedTile = iTileBeingFlippedId;
     } else {
+        lockOtherTiles();
+
         if (tiles[iFlippedTile].getBackContentImage() !== tiles[iTileBeingFlippedId].getBackContentImage()) {
-            setTimeout("tiles[" + iFlippedTile + "].revertFlip()", 1000);
-            setTimeout("tiles[" + iTileBeingFlippedId + "].revertFlip()", 1000);
-            
-           	playAudio("mp3/Error.mp3");
+            setTimeout("tiles[" + iFlippedTile + "].revertFlip()", peekInterval);
+            setTimeout("tiles[" + iTileBeingFlippedId + "].revertFlip()", peekInterval);
+ 
+            playAudio("mp3/Error.mp3");
         } else {
             playAudio("mp3/Ok.mp3");
-            
+
+            // Unlock other tiles immediately
+            unlockOtherTiles();
+
             solvedNum += 1;
         }
 
@@ -167,6 +182,11 @@ function checkMatch() {
         iTileBeingFlippedId = null;
 
         attemptedNum += 1;
+
+        // Unlock other tiles
+        if (checkingTiles === true) {
+            setTimeout("unlockOtherTiles()", peekInterval);
+        }
 
         // Here checks if the game has finished
         checkIfFinished();
@@ -176,11 +196,13 @@ function checkMatch() {
 function onPeekComplete() {
 
     $('div.tile').click(function () {
-        iTileBeingFlippedId = this.id.substring("tile".length);
+        if (checkingTiles !== true) {
+            iTileBeingFlippedId = this.id.substring("tile".length);
 
-        if (tiles[iTileBeingFlippedId].getFlipped() === false) {
-            tiles[iTileBeingFlippedId].addFlipCompleteCallback(function () { checkMatch(); });
-            tiles[iTileBeingFlippedId].flip();
+            if (tiles[iTileBeingFlippedId].getFlipped() === false) {
+                tiles[iTileBeingFlippedId].addFlipCompleteCallback(function () { checkMatch(); });
+                tiles[iTileBeingFlippedId].flip();
+            }
         }
     });
 }
@@ -192,29 +214,29 @@ function onPeekStart() {
 function checkIfFinished() {
     if (solvedNum == totalPuzzleNum) {
         endTime = new Date();
-		var timeElapsed = endTime - startTime;
-		
-		// strip the ms
-		timeElapsed /= 1000;
-		
+        var timeElapsed = endTime - startTime;
+
+        // strip the ms
+        timeElapsed /= 1000;
+
         score = totalPuzzleNum / attemptedNum * 1000 - timeElapsed;
         if (score < 0) {
-        	score = 0;
+            score = 0;
         }
-        
+
         score = score.toFixed(0);
-        
+
         // A delay before showing the score
-		setTimeout("displayScore(score)", 1000);
+        setTimeout("displayScore(score)", 1000);
     }
 }
 
 function displayScore(score) {
-	document.getElementById("scoreLabel").innerHTML = "Your Score = " + score;
+    document.getElementById("scoreLabel").innerHTML = "Your Score = " + score;
 }
 
 function clearScoreLabel() {
-	document.getElementById("scoreLabel").innerHTML = null;
+    document.getElementById("scoreLabel").innerHTML = null;
 }
 
 $(document).ready(function () {
