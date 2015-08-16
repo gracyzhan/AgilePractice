@@ -29,6 +29,10 @@ function getRandomImageForTile() {
     return iRandomImage;
 }
 
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 function createTile(iCounter) {
 
     var curTile = new tile("tile" + iCounter),
@@ -36,7 +40,7 @@ function createTile(iCounter) {
 
     tileAllocation[iRandomImage] = tileAllocation[iRandomImage] + 1;
 
-    curTile.setFrontColor("tileColor" + Math.floor((Math.random() * 5) + 1));
+    curTile.setFrontColor("tileColor" + Math.floor((Math.random() * 7) + 1));
     curTile.setStartAt(500 * Math.floor((Math.random() * 5) + 1));
     curTile.setFlipMethod(flips[Math.floor((Math.random() * 3) + 1)]);
     curTile.setBackContentImage("images/" + (iRandomImage + 1) + ".png");
