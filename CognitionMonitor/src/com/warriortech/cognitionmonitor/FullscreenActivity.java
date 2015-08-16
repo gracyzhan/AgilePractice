@@ -2,8 +2,10 @@ package com.warriortech.cognitionmonitor;
 
 import com.warriortech.cognitionmonitor.util.SystemUiHider;
 
+import android.graphics.Bitmap;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,7 +14,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
+import android.widget.Toast;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -49,11 +51,10 @@ public class FullscreenActivity extends Activity {
 	 */
 	private SystemUiHider mSystemUiHider;
 
-	
 	private String startPageURL = "file:///android_asset/login.html";
 	private String gamePageURL = "file:///android_asset/game.html";
-	private String selectionPageURL = "file:///android_asset/select.html";
 	private String indexPageURL = "file:///android_asset/index.html";
+	private String reportPageURL = "file:///android_asset/report.html";
 	private WebView mainWebView;
 
 	@Override
@@ -141,16 +142,44 @@ public class FullscreenActivity extends Activity {
 		mainWebView.setWebViewClient(new WebViewClient() {
 
 			@Override
-			public void onPageFinished(WebView view, String url) {
+			public void onPageStarted(WebView view, String url, Bitmap favicon) {
 				// TODO: this is a bad way to fix the zoom level
 				// please use a better way for the game page
-				 
+				int defaultScale = 200, specialScale = 150;
+				
 				if (url.equals(gamePageURL))
-					mainWebView.setInitialScale(150);				
+					view.setInitialScale(specialScale);
+				if (url.equals(indexPageURL)) {
+					view.setInitialScale(defaultScale);
+				}
 			}
+			
+			@Override
+			public void onPageFinished(WebView view, String url) {
+				// You can add some code here
+
+			}
+
 		});
 
 		hideSystemUI();
+
+		generateScoreReport();
+	}
+
+	private void generateScoreReport() {
+		// TODO Please generate the report.html here using the history data from
+		// the database
+
+	}
+
+	private void showToast(String content) {
+		Context context = getApplicationContext();
+		CharSequence text = content;
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.show();
 	}
 
 	// This snippet hides the system bars.
