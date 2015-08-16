@@ -1,8 +1,8 @@
 package com.warriortech.cognitionmonitor;
 
 import com.warriortech.cognitionmonitor.util.SystemUiHider;
-
 import android.graphics.Bitmap;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -51,12 +51,13 @@ public class FullscreenActivity extends Activity {
 	 */
 	private SystemUiHider mSystemUiHider;
 
-	private String startPageURL = "file:///android_asset/login.html";
+	private String loginPageURL = "file:///android_asset/login.html";
 	private String gamePageURL = "file:///android_asset/game.html";
 	private String indexPageURL = "file:///android_asset/index.html";
 	private String reportPageURL = "file:///android_asset/report.html";
 	private WebView mainWebView;
 
+	@SuppressLint("SetJavaScriptEnabled")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -134,7 +135,7 @@ public class FullscreenActivity extends Activity {
 		mainWebView.getSettings().setJavaScriptEnabled(true);
 		mainWebView.setWebChromeClient(new WebChromeClient());
 		mainWebView.loadUrl(indexPageURL);
-		mainWebView.getSettings().setBuiltInZoomControls(true);
+		//mainWebView.getSettings().setBuiltInZoomControls(true);
 
 		mainWebView.getSettings().setLoadWithOverviewMode(true);
 		// mainWebView.getSettings().setUseWideViewPort(true);
@@ -194,25 +195,10 @@ public class FullscreenActivity extends Activity {
 		// Set the IMMERSIVE flag.
 		// Set the content to appear under the system bars so that the content
 		// doesn't resize when the system bars hide and show.
-		getWindow().getDecorView().setSystemUiVisibility(
-				View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-						| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-						| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-						| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-						| View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-						| View.SYSTEM_UI_FLAG_IMMERSIVE);
+		View mDecorView = getWindow().getDecorView();
+		mDecorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 	}
-
-	// This snippet shows the system bars. It does this by removing all the
-	// flags
-	// except for the ones that make the content appear under the system bars.
-	private void showSystemUI() {
-		getWindow().getDecorView().setSystemUiVisibility(
-				View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-						| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-						| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-	}
-
+	
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
