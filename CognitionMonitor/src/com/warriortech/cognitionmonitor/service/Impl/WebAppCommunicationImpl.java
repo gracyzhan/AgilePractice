@@ -1,7 +1,9 @@
-package com.warriortech.cognitionmonitor.service;
+package com.warriortech.cognitionmonitor.service.Impl;
 
 import com.warriortech.cognitionmonitor.model.GameResult;
 import com.warriortech.cognitionmonitor.model.User;
+import com.warriortech.cognitionmonitor.service.Interface.GameStateController;
+import com.warriortech.cognitionmonitor.service.Interface.WebAppCommunication;
 
 import android.content.Context;
 

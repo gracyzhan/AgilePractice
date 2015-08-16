@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.warriortech.cognitionmonitor.service;
+package com.warriortech.cognitionmonitor.service.Interface;
 
 import android.content.Context;
 

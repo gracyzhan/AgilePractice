@@ -1,4 +1,6 @@
-package com.warriortech.cognitionmonitor.service;
+package com.warriortech.cognitionmonitor.service.Impl;
+
+import com.warriortech.cognitionmonitor.service.Interface.UserRegisterController;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.warriortech.cognitionmonitor.service;
+package com.warriortech.cognitionmonitor.service.Interface;
 
 import com.warriortech.cognitionmonitor.model.GameResult;
 

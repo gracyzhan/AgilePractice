@@ -1,9 +1,10 @@
-package com.warriortech.cognitionmonitor.service;
+package com.warriortech.cognitionmonitor.service.Impl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.warriortech.cognitionmonitor.model.GameResult;
+import com.warriortech.cognitionmonitor.service.Interface.GameJSONController;
 
 public class GameJSONHandlerImpl implements GameJSONController{
 	
