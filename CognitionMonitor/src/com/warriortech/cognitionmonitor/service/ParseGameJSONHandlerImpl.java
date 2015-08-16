@@ -5,29 +5,38 @@ import org.json.JSONObject;
 
 import com.warriortech.cognitionmonitor.model.GameResult;
 
-public class ParseGameJSONHandler {
+public class ParseGameJSONHandlerImpl implements ParseGameJSONController{
 	
-	public ParseGameJSONHandler(){
+	public ParseGameJSONHandlerImpl(){
 		
 	}
 	
-	public ParseGameJSONHandler(String jsonStr) throws JSONException{
+	public ParseGameJSONHandlerImpl(String jsonStr) throws JSONException{
 		JSONObject jsonObj = new JSONObject(jsonStr);
 		this.rootNode = jsonObj.getJSONArray(TAG_RESULT);
 	}
 	
-	public GameResult parseJSONContent() throws JSONException{
+	@Override
+	public GameResult parseGameJSONContent() {
 		// looping through the result
-		JSONObject content = this.rootNode.getJSONObject(0);
-		String gid = content.getString(TAG_ID);
-		String score = content.getString(TAG_SCORE);
-		String time = content.getString(TAG_TIME);
+		JSONObject content = null;
+		String gid = null;
+		String score = null;
+		String time = null;;
+		
+		try {
+			content = this.rootNode.getJSONObject(0);
+			gid = content.getString(TAG_ID);
+			score = content.getString(TAG_SCORE);
+			time = content.getString(TAG_TIME);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		GameResult result = new GameResult(gid, score, time);
 		
-		
 		return result;
-		
 	}
 	
 	// JSON Node names
@@ -39,5 +48,4 @@ public class ParseGameJSONHandler {
     // contacts JSONArray
     JSONArray result = null;
     JSONArray rootNode;
-
 }
