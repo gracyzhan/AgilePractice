@@ -52,6 +52,15 @@
             </div>
         </div>
     </div>
+    
+    
+    <script>
+     function validateEmail(email) {
+     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+     return re.test(email);
+	}
+    </script>
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
