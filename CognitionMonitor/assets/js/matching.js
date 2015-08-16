@@ -10,7 +10,8 @@ var tiles = new Array(),
 
 var startTime = null,
     endTime = null,
-	totalPuzzleNum = 10,
+	totalPuzzleNum = 10
+	totalTileNum = 20,
     attemptedNum = 0,
     solvedNum = 0,
     score = 0;
@@ -85,7 +86,7 @@ function initTiles() {
     initState();
 
     // Randomly create twenty tiles and render to board
-    for (iCounter = 0; iCounter < 20; iCounter++) {
+    for (iCounter = 0; iCounter < totalTileNum; iCounter++) {
 
         curTile = createTile(iCounter);
 
