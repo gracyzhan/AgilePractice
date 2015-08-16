@@ -5,13 +5,13 @@ import org.json.JSONObject;
 
 import com.warriortech.cognitionmonitor.model.GameResult;
 
-public class ParseGameJSONHandlerImpl implements ParseGameJSONController{
+public class GameJSONHandlerImpl implements GameJSONController{
 	
-	public ParseGameJSONHandlerImpl(){
+	public GameJSONHandlerImpl(){
 		
 	}
 	
-	public ParseGameJSONHandlerImpl(String jsonStr) throws JSONException{
+	public GameJSONHandlerImpl(String jsonStr) throws JSONException{
 		JSONObject jsonObj = new JSONObject(jsonStr);
 		this.rootNode = jsonObj.getJSONArray(TAG_RESULT);
 	}

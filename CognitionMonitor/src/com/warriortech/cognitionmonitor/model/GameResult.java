@@ -30,7 +30,16 @@ public class GameResult {
 		return this.gameTime;
 	}
 	
+	public String getCurrentTime() {
+		return currentTime;
+	}
+
+	public void setCurrentTime(String currentTime) {
+		this.currentTime = currentTime;
+	}
+
 	private String gameId;
 	private String gameScore;
 	private String gameTime;
+	private String currentTime;
 }

@@ -1,5 +1,6 @@
 package com.warriortech.cognitionmonitor.service;
 
+import com.warriortech.cognitionmonitor.model.GameResult;
 import com.warriortech.cognitionmonitor.model.User;
 
 import android.content.Context;
@@ -30,5 +31,13 @@ public class WebAppCommunicationImpl implements WebAppCommunication{
 		//http://developer.android.com/guide/webapps/webview.html
 		
 		
+	}
+
+	@Override
+	public GameResult readGameInfoFromDB() {
+		// TODO Task 004 read data from DB and pass it to js
+		// may need JSONObject, need to modify
+		
+		return null;
 	}
 }
