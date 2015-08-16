@@ -4,5 +4,6 @@
     <string name="app_name">CognitionMonitor</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">Cognition\nMonitor</string>
-
+    <string name="action_exit">Exit</string>
+    
 </resources>
