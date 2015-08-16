@@ -3,9 +3,9 @@
     package="com.warriortech.cognitionmonitor"
     android:versionCode="1"
     android:versionName="1.0" >
-    
-<!--  	<uses-permission android:name="android.permission.INTERNET" /> -->
-    
+
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
@@ -19,6 +19,7 @@
             android:name=".FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
