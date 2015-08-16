@@ -44,17 +44,21 @@ function createTile(iCounter) {
     return curTile;
 }
 
+function resetScore() {
+    attemptedNum = 0;
+    solvedNum = 0;
+    startTime = new Date();
+    endTime = null;
+}
+
 function initState() {
 
     /* Reset the tile allocation count array.  This
 		is used to ensure each image is only 
 		allocated twice.
 	*/
-    endTime = null;
 
-    attemptedNum = 0;
-    solvedNum = 0;
-    startTime = new Date();
+    resetScore();
 
     tileAllocation = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -64,7 +68,6 @@ function initState() {
 
     $('#board').empty();
     iTimer = 0;
-
 }
 
 function initTiles() {
@@ -180,11 +183,11 @@ function onPeekStart() {
 
 function checkIfFinished() {
     if (solvedNum == totalPuzzleNum) {
+        endTime = new Date();
+
         var score = totalPuzzleNum / attemptedNum * 100;
         score = score.toFixed(0);
 
-        endTime = new Date();
-        
         document.getElementById("scoreLabel").innerHTML = "Your Score = " + score;
     }
 }

@@ -147,7 +147,7 @@ public class FullscreenActivity extends Activity {
 			public void onPageStarted(WebView view, String url, Bitmap favicon) {
 				// TODO: this is a bad way to fix the zoom level
 				// please use a better way for the game page
-				int defaultScale = 200, specialScale = 150;
+				int defaultScale = 200, specialScale = 185;
 				
 				if ((url.equals(gamePageURL))
 						&& (specialScale != view.getScale()))

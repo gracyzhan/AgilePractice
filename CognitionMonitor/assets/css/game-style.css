@@ -13,7 +13,7 @@ body {
 }
 
 body article#game {
-	width: 470px;
+	width: 390px;
 	margin: 0 auto;
 }
 
@@ -26,8 +26,8 @@ header div {
 
 #board {
 	padding-top: 0px;
-    width: 460px;
-    height: 570px;
+    width: 380px;
+    height: 460px;
 	background-color: rgb(228, 223, 208);
 }
 
@@ -50,8 +50,8 @@ header div {
 
 .tile {
 	float:left;
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	margin-left: 10px;
 	margin-bottom: 10px;
 	border: 1px solid #cfcfcf;
@@ -61,7 +61,7 @@ header div {
 .tile img {
 	display: block;
 	margin: 0 auto;
-	padding-top: 25px;
+	padding-top: 15px;
 	width: 50px;
 }
 
