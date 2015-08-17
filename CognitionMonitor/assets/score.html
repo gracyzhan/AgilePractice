@@ -29,6 +29,10 @@
             }
             document.getElementById('scoredisplay').innerHTML = data.score;
         }
+        
+         function goToReport1() {
+            window.location = "./report.html"
+        }
     </script>
 </head>
 <body>
@@ -38,8 +42,7 @@
             <h3 id="scoredisplay1" style="text-align:center"> Your Score</h3>
             <p id = "scoredisplay" style="text-align:center;font-size: 32px;padding-top: 60px;"></p>          
             <div style="text-align:center;padding-top: 60px;">
-            <button type="button" >View My History Report</button>
-            <a href="report.html">report</a>
+            <button type="button" id="login-button" onclick="goToReport1()">View My History Report</button>
             </div>
         </form>
     </div>
