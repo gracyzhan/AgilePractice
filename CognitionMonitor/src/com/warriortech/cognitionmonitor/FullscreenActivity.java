@@ -238,7 +238,7 @@ public class FullscreenActivity extends Activity {
 
 	/**
 	 * Schedules a call to hide() in [delay] milliseconds, canceling any
-	 * previously scheduled calls.
+	 * previously scheduled calls. Test
 	 */
 	private void delayedHide(int delayMillis) {
 		mHideHandler.removeCallbacks(mHideRunnable);
