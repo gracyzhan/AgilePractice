@@ -225,18 +225,28 @@ function checkIfFinished() {
         }
 
         score = score.toFixed(0);
-
+        
         // A delay before showing the score
-        setTimeout("displayScore(score)", 1000);
+        setTimeout("sendScore(score)", 1000);
     }
 }
 
+function displayText(text) {
+    document.getElementById("score").innerHTML = text;
+}
+
 function displayScore(score) {
-    document.getElementById("scoreLabel").innerHTML = "Your Score = " + score;
+    document.getElementById("score").innerHTML = "Your Score = " + score;
 }
 
 function clearScoreLabel() {
-    document.getElementById("scoreLabel").innerHTML = null;
+    document.getElementById("score").innerHTML = null;
+}
+
+function sendScore(score) {
+    var b = score,
+        url = 'score.html?score=' + encodeURIComponent(b);
+    document.location.href = url;
 }
 
 $(document).ready(function () {
