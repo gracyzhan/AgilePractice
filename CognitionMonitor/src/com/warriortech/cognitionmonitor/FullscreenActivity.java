@@ -149,7 +149,7 @@ public class FullscreenActivity extends Activity {
 			@SuppressWarnings("deprecation")
 			@Override
 			public void onPageStarted(WebView view, String url, Bitmap favicon) {
-				// TODO: this is a bad way to fix the zoom level
+				// This is not a good way to fix the zoom level
 				// please use a better way for the game page
 				int defaultScale = 200, specialScale = 185;
 				
