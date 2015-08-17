@@ -27,14 +27,19 @@
                 tmp = params[i].split('=');
                 data[tmp[0]] = tmp[1];
             }
-            document.getElementById('scoredisplay').innerHTML = "Scores:  = " + data.score;
+            document.getElementById('scoredisplay').innerHTML = data.score;
         }
     </script>
 </head>
 <body>
     <div class="container">
         <form name="scoreform" action="game.html" method="get">
-            <h3 id="scoredisplay" style="text-align:center">Score1</h3>
+            <h3 id="scoredisplay1" style="text-align:center"> Congratulation!</h3>
+            <h3 id="scoredisplay1" style="text-align:center"> Your Score</h3>
+            <p id = "scoredisplay" style="text-align:center;font-size: 32px;padding-top: 60px;"></p>          
+            <div style="text-align:center;padding-top: 60px;">
+            <button type="button" >View My History Report</button>
+            </div>
         </form>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
