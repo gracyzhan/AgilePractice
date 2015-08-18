@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Cherry Swash';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cherry Swash'), local('CherrySwash-Regular'), url(http://fonts.gstatic.com/s/cherryswash/v4/HqOk7C7J1TZ5i3L-ejF0vugdm0LZdjqr5-oayXSOefg.woff2) format('woff2'), url(http://fonts.gstatic.com/s/cherryswash/v4/HqOk7C7J1TZ5i3L-ejF0vnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Cherry Swash';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Cherry Swash Bold'), local('CherrySwash-Bold'), url(http://fonts.gstatic.com/s/cherryswash/v4/-CfyMyQqfucZPQNB0nvYyHNuWYKPzoeKl5tYj8yhly0.woff2) format('woff2'), url(http://fonts.gstatic.com/s/cherryswash/v4/-CfyMyQqfucZPQNB0nvYyHl4twXkwp3_u9ZoePkT564.woff) format('woff');
+}
