@@ -225,9 +225,13 @@ function checkIfFinished() {
         }
 
         score = score.toFixed(0);
-        var jsonStr=Android.readGameInfoFromDB();
-        var result = jQuery.parseJSON( jsonStr );
-        score = parseInt(result.score);
+        
+        // These three lines are temporarily commented-out 
+        // because they lead to a crash
+        //var jsonStr=Android.readGameInfoFromDB();
+        //var result = jQuery.parseJSON( jsonStr );
+        //score = parseInt(result.score);
+        
         // A delay before showing the score
         setTimeout("sendScore(score)", 1000);
     }
