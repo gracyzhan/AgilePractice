@@ -22,10 +22,11 @@ public class WebAppCommunicationImpl{
     
 	/**save the game id, time and score to local database  */
 	@JavascriptInterface
-	public void saveTimeAndScore(float time, int score) {
+	public void saveTimeAndScore(String jsonStr) {
 		// TODO Task 001: Waiting to get the current user information
 		User user=new User("firstName", "lastName", "password", "001");
-		gameStateController.saveAbilityTestResult(mContext, user, time, score);
+		GameResult gs=JSONHandler.parseGameJSONContent(jsonStr);
+		gameStateController.saveAbilityTestResult(mContext, user, gs);
 		
 		//TODO Task 003: Add the javascript interface to the webview
 		//webView.addJavascriptInterface(new WebAppInterface(this), "Android");

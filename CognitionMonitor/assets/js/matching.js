@@ -225,9 +225,15 @@ function checkIfFinished() {
         }
 
         score = score.toFixed(0);
-        var jsonStr=Android.readGameInfoFromDB();
-        var result = jQuery.parseJSON( jsonStr );
-        score = parseInt(result.score);
+        
+        var jsonObj = new Object();        
+        var result = new Object();
+        result.gid="matchingGame";
+        result.score=score.toString();
+        result.time=timeElapsed.toString();
+        jsonObj.result=result;
+        Android.saveTimeAndScore(JSON.stringify(jsonObj));
+        
         // A delay before showing the score
         setTimeout("sendScore(score)", 1000);
     }
