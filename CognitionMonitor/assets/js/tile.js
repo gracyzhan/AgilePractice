@@ -24,20 +24,13 @@ function tile(id) {
 
     this.onFlipComplete = function () {
 
-        console.log("Flip complete");
-
         while (this.flipCompleteCallbacks.length > 0) {
-
-            console.log("Running callback " + this.flipCompleteCallbacks[this.flipCompleteCallbacks.length - 1]);
             this.flipCompleteCallbacks[this.flipCompleteCallbacks.length - 1]();
             this.flipCompleteCallbacks.pop();
         }
     };
 
     this.revertFlip = function () {
-
-        console.log("Reverting tile " + this.id);
-
         $("#" + this.id + " img").hide();
 
         $("#" + this.id).revertFlip();
