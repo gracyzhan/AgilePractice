@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -16,7 +16,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
     <!--The script below will get score from the game page-->
     <script>
         window.onload = function () {
@@ -29,20 +28,28 @@
             }
             document.getElementById('scoredisplay').innerHTML = data.score;
         }
-        
-         function goToReport1() {
+
+        function goToReport1() {
             window.location = "./report.html"
         }
     </script>
 </head>
-<body>
+<body style="background-color:black">
     <div class="container">
+        <a style="color:white; padding: 10px 20px; border-radius: 4px 4px 0 0;
+           font-weight: bold; font-family: sans-serif;" href="index.html">
+            << Back
+        </a>
         <form name="scoreform" action="game.html" method="get">
-            <h3 id="scoredisplay1" style="text-align:center"> Congratulation!</h3>
-            <h3 id="scoredisplay1" style="text-align:center"> Your Score</h3>
-            <p id = "scoredisplay" style="text-align:center;font-size: 32px;padding-top: 60px;"></p>          
+            <div style="color:white; text-align:center">
+                <h2>Congratulations!</h2>
+                <h3>Your Score</h3>
+                <p id="scoredisplay" style="font-size:32px; padding-top:60px;"></p>
+            </div>
             <div style="text-align:center;padding-top: 60px;">
-            <button type="button" id="login-button" onclick="goToReport1()">View My History Report</button>
+                <button type="button" class="btn btn-lg btn-success" id="login-button" onclick="goToReport1()">
+                    View My History Report
+                </button>
             </div>
         </form>
     </div>
