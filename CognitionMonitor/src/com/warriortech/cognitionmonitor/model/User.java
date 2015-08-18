@@ -1,10 +1,24 @@
 package com.warriortech.cognitionmonitor.model;
 
+/**
+ * 
+ * @author ximinyan
+ *
+ */
+
 public class User {
 	public User(){
 		
 	}
 	
+	/**
+	 * Initialize the class
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @param password
+	 * @param id
+	 */
 	public User(String firstName, String lastName, String password, String id){
 		this.userId = id;
 		this.lastName = lastName;
@@ -12,31 +26,67 @@ public class User {
 		this.password = password;
 	}
 	
+	/**
+	 * 
+	 * @return firstName
+	 */
 	public String getFirstName() {
 		return this.firstName;
 	}
+	
+	/**
+	 * 
+	 * @param firstName
+	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 	
+	/**
+	 * 
+	 * @return lastName
+	 */
 	public String getLastName() {
 		return lastName;
 	}
+	
+	/**
+	 * 
+	 * @param lastName
+	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	/**
+	 * 
+	 * @return password
+	 */
 	
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * 
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
+	/**
+	 * 
+	 * @return userId
+	 */
 	public String getID() {
 		return this.userId;
 	}
+	
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setID(String id) {
 		this.userId = id;
 	}
