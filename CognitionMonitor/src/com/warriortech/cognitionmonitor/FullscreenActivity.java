@@ -59,6 +59,8 @@ public class FullscreenActivity extends Activity {
 	private String gamePageURL = "file:///android_asset/game.html";
 	private String indexPageURL = "file:///android_asset/index.html";
 	private String reportPageURL = "file:///android_asset/report.html";
+	private String scorePageURL = "file:///android_asset/score.html";
+	
 	private WebView mainWebView;
 
 	@SuppressLint("SetJavaScriptEnabled")
@@ -161,6 +163,10 @@ public class FullscreenActivity extends Activity {
 					view.setInitialScale(defaultScale);
 				}
 				if (url.equals(reportPageURL)
+						&& (defaultScale != view.getScale())) {
+					view.setInitialScale(defaultScale);
+				}
+				if (url.contains(scorePageURL)
 						&& (defaultScale != view.getScale())) {
 					view.setInitialScale(defaultScale);
 				}
