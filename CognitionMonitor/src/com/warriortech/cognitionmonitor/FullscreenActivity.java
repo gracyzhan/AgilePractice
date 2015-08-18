@@ -1,5 +1,6 @@
 package com.warriortech.cognitionmonitor;
 
+import com.warriortech.cognitionmonitor.service.Impl.WebAppCommunicationImpl;
 import com.warriortech.cognitionmonitor.util.SystemUiHider;
 
 import android.graphics.Bitmap;
@@ -61,7 +62,7 @@ public class FullscreenActivity extends Activity {
 	private String reportPageURL = "file:///android_asset/report.html";
 	private WebView mainWebView;
 
-	@SuppressLint("SetJavaScriptEnabled")
+	@SuppressLint({ "SetJavaScriptEnabled", "JavascriptInterface" })
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -137,6 +138,7 @@ public class FullscreenActivity extends Activity {
 		// Load the html game stored in the assets
 		mainWebView = (WebView) findViewById(R.id.myWebView);
 		mainWebView.getSettings().setJavaScriptEnabled(true);
+		mainWebView.addJavascriptInterface(new WebAppCommunicationImpl(this), "Android");
 		mainWebView.setWebChromeClient(new WebChromeClient());
 		mainWebView.loadUrl(indexPageURL);
 		//mainWebView.getSettings().setBuiltInZoomControls(true);

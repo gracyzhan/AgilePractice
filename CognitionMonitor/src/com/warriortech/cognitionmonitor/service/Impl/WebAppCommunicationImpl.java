@@ -3,11 +3,12 @@ package com.warriortech.cognitionmonitor.service.Impl;
 import com.warriortech.cognitionmonitor.model.GameResult;
 import com.warriortech.cognitionmonitor.model.User;
 import com.warriortech.cognitionmonitor.service.Interface.GameStateController;
-import com.warriortech.cognitionmonitor.service.Interface.WebAppCommunication;
+import com.warriortech.cognitionmonitor.util.JSONHandler;
 
 import android.content.Context;
+import android.webkit.JavascriptInterface;
 
-public class WebAppCommunicationImpl implements WebAppCommunication{
+public class WebAppCommunicationImpl{
 	
 	Context mContext;
 	
@@ -19,13 +20,11 @@ public class WebAppCommunicationImpl implements WebAppCommunication{
         mContext = c;
     }
     
-	/* (non-Javadoc)
-	 * @see com.warriortech.cognitionmonitor.service.WebAppCommunicationInterface#saveTimeAndScore(float, int)
-	 */
-	@Override
+	/**save the game id, time and score to local database  */
+	@JavascriptInterface
 	public void saveTimeAndScore(float time, int score) {
 		// TODO Task 001: Waiting to get the current user information
-		User user=new User();
+		User user=new User("firstName", "lastName", "password", "001");
 		gameStateController.saveAbilityTestResult(mContext, user, time, score);
 		
 		//TODO Task 003: Add the javascript interface to the webview
@@ -35,11 +34,12 @@ public class WebAppCommunicationImpl implements WebAppCommunication{
 		
 	}
 
-	@Override
-	public GameResult readGameInfoFromDB() {
+	@JavascriptInterface
+	public String readGameInfoFromDB() {
 		// TODO Task 004 read data from DB and pass it to js
 		// may need JSONObject, need to modify
+		GameResult gr=new GameResult("123", "4444", "333");
 		
-		return null;
+		return JSONHandler.jsonGameResult(gr);
 	}
 }
