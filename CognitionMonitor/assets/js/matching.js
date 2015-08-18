@@ -234,6 +234,7 @@ function checkIfFinished() {
         jsonObj.result=result;
         Android.saveTimeAndScore(JSON.stringify(jsonObj));
         
+        
         // A delay before showing the score
         setTimeout("sendScore(score)", 1000);
     }
