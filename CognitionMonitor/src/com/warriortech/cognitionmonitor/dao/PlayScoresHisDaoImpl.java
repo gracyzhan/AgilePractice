@@ -101,7 +101,7 @@ public class PlayScoresHisDaoImpl extends DataBaseDaoImpl {
 	
 	/**
 	 * @param playScoresHis
-	 * 
+	 * playScoresHis
 	 * please use playScoresHis.getPlayTimeStart and playScoresHis.getPlayTimeEnd to transfer the conditions
 	 * please use playScoresHis.getPlayGameId() 
 	 * @return
