@@ -58,10 +58,28 @@ public class PlayScoresHis {
 		PlayGameName = playGameName;
 	}
 
+	public String getPlayTimeStart() {
+		return PlayTimeStart;
+	}
+
+	public void setPlayTimeStart(String playTimeStart) {
+		PlayTimeStart = playTimeStart;
+	}
+
+	public String getPlayTimeEnd() {
+		return PlayTimeEnd;
+	}
+
+	public void setPlayTimeEnd(String playTimeEnd) {
+		PlayTimeEnd = playTimeEnd;
+	}
+	
 	private String MachineId = "MachineId";
 	private String PlayTime = "PlayTime";
 	private String Score = "Score";
 	private String PlayGameId = "PlayGameId";
 	private String PlayGameName = "PlayGameName";
+	private String PlayTimeStart = "";
+	private String PlayTimeEnd = "";
 
 }

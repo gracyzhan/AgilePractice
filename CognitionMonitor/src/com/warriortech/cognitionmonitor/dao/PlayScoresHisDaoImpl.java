@@ -97,6 +97,24 @@ public class PlayScoresHisDaoImpl extends DataBaseDaoImpl {
 		Cursor cursor = db.rawQuery(sql, null);
 		return cursor;
 	}
+	
+	/**
+	 * @param playScoresHis
+	 *            -getPlayGameId
+	 * @return
+	 */
+	public Cursor GetCursorByDateAndGameId(PlayScoresHis playScoresHis) {
+
+		SQLiteDatabase db = this.getReadableDatabase();
+		String sql = "SELECT * FROM " + PlayScoresHisTable.TABLE_NAME
+				+ " WHERE " + PlayScoresHisTable.PlayGameId
+				+ "='" + playScoresHis.getPlayGameId() + "'"
+				+ " and " + PlayScoresHisTable.PlayTime + " between '" +
+				playScoresHis.getPlayTimeStart() +"' and '"+ playScoresHis.getPlayTimeEnd() +"'";
+		 
+		Cursor cursor = db.rawQuery(sql, null);
+		return cursor;
+	}
 
 	/**
 	 * @param playScoresHis
