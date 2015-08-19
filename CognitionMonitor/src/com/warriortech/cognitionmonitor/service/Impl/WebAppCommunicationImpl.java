@@ -40,7 +40,6 @@ public class WebAppCommunicationImpl{
 		// TODO Task 004 read data from DB and pass it to js
 		// may need JSONObject, need to modify
 		GameResult gr=new GameResult("123", "4444", "333");
-		
 		return JSONHandler.jsonGameResult(gr);
 	}
 }

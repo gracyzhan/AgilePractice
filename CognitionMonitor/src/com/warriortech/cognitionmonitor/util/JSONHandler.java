@@ -13,7 +13,9 @@ public class JSONHandler {
     private static final String TAG_SCORE = "score";
     private static final String TAG_TIME = "time";	
 	
-	/* GameResult JSON : {"result":{"id":"111","score":"333","time":"12345"}}*/
+	/* @param jsonStr : the GameResult JSON String
+	 * Scheme :  {"result":{"id":"111","score":"333","time":"12345"}}*/
+    // convert the JSON string to the GameResult Object
 	public static GameResult parseGameJSONContent(String jsonStr) {
 		// looping through the result
 		
@@ -36,7 +38,8 @@ public class JSONHandler {
 	}
 	
 	/* GameResult JSON : {"result":{"id":"111","score":"333","time":"12345"}}
-	 * order not guaranteed*/
+	 * @param gs: GameResult Object
+	 * Convert the GameResult to the JSON string*/
 	
 	public static String jsonGameResult(GameResult gs)
 	{
@@ -56,6 +59,5 @@ public class JSONHandler {
 		return jsonObj.toString();
 	}
 	
-	// JSON Node names
 
 }
