@@ -98,9 +98,11 @@ public class PlayScoresHisDaoImpl extends DataBaseDaoImpl {
 		return cursor;
 	}
 	
+	
 	/**
 	 * @param playScoresHis
-	 *            -getPlayGameId
+	 * please use playScoresHis.getPlayTimeStart and playScoresHis.getPlayTimeEnd to transfer the conditions
+	 * please use playScoresHis.getPlayGameId() 
 	 * @return
 	 */
 	public Cursor GetCursorByDateAndGameId(PlayScoresHis playScoresHis) {
